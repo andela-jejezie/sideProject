@@ -8,16 +8,21 @@
  *
  * Main module of the application.
  */
-angular
+ /* global app:true */
+ /* exported app */
+
+var app = angular
   .module('newApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'firebase'
   ])
-  .config(function ($routeProvider) {
+  .constant('FIREBASE_URL', 'https://side-project.firebaseio.com/');
+  app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
