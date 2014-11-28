@@ -41,7 +41,6 @@ app.factory('Auth', function ($firebaseSimpleLogin, FIREBASE_URL, $rootScope, $c
     // console.log(user.profile.$id);
 
 
-
     login: function (user) {
       return auth.$login('password', user);
     },
