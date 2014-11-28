@@ -21,21 +21,48 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+   <!--  <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+ 
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="">Contact</a></li>
+       
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+           <form class="navbar-form navbar-right" role="password">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Email">        
+          <input type="text" class="form-control" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-default">Login</button>
+        <button type="submit" class="btn btn-default">Register</button>
+      </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+    <div ng-include="'views/nav.html'"></div>
     <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">new</h3>
-      </div>
+
 
       <div ng-view=""></div>
 
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
+    
     </div>
 
 
@@ -79,6 +106,33 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/auth.js"></script>
+        <script src="scripts/services/authService.js"></script>
+        <script src="scripts/controllers/nav.js"></script>
+        <script src="scripts/controllers/register.js"></script>
+        <script src="scripts/controllers/profile_setting.js"></script>
+        <script type="text/ng-template" id="paperInput">
+          <div ng-form="inputForm">
+            <div class="group paper-input">
+            <input type="{{ type }}" ng-model="modelRef" name="modelName" ng-required="isRequired">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>{{ label }}</label>
+            </div>
+          <div>
+        </script>
+        <script type="text/ng-template" id="paperRadio">
+          <div ng-form="radioForm" id="radio-awesome" class="form-group paper-radio">
+            <input type="radio" id="{{ idx }}" ng-model="model" name="modelName">
+            <label for="{{ idx }}" ng-click="invokeAnimation()">
+              <span></span>
+              <span class="radio"></span>
+              <span class="box"></span>
+              {{ label }}
+            </label>
+            <div ng-transclude></div>
+          </div>
+        </script>
         <!-- endbuild -->
 </body>
 </html>

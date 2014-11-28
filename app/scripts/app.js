@@ -9,7 +9,8 @@
  * Main module of the application.
  */
  /* global app:true */
- /* exported app */
+/* exported app */
+
 
 var app = angular
   .module('newApp', [
@@ -31,6 +32,28 @@ var app = angular
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
+      })
+      .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'AuthCtrl',
+        resolve: {
+          user: function(Auth) {
+            return Auth.resolveUser();
+         }     
+       }
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'AuthCtrl',
+        resolve: {
+          user: function(Auth) {
+            return Auth.resolveUser();
+          }
+        }
+      })
+       .when('/profileSetting', {
+        templateUrl: 'views/profile_Setting.html',
+        controller: 'ProfileSettingCtrl'
       })
       .otherwise({
         redirectTo: '/'

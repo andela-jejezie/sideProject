@@ -1,0 +1,14 @@
+<div class="auth-forms">
+
+  <h2>Log In</h2>
+
+  <form ng-submit="login()">
+  	<div class="alert alert-danger" ng-show="error">
+    	<strong>Error! Invalid Email or Password</strong>
+	</div>
+   <paper-input label="Email" type="email" model-ref="user.email"></paper-input>
+        <paper-input label="Password" type="password" model-ref="user.password" required=""></paper-input>
+    <input type="submit" value="Log in" class="btn btn-primary" />
+  </form>
+
+</div>
