@@ -16,26 +16,14 @@
     <!-- endbuild -->
   </head>
   <body ng-app="newApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
-    <!-- Add your site or application content here -->
+    <div ng-include="'views/nav.html'"></div>
     <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">new</h3>
-      </div>
+
 
       <div ng-view=""></div>
 
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
+    
     </div>
 
 
@@ -68,6 +56,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
     <script src="bower_components/mockfirebase/dist/mockfirebase.js"></script>
@@ -79,6 +68,33 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/auth.js"></script>
+        <script src="scripts/services/authService.js"></script>
+        <script src="scripts/controllers/nav.js"></script>
+        <script src="scripts/controllers/register.js"></script>
+        <script src="scripts/controllers/profile_setting.js"></script>
+        <script type="text/ng-template" id="paperInput">
+          <div ng-form="inputForm">
+            <div class="group paper-input">
+            <input type="{{ type }}" ng-model="modelRef" name="modelName" ng-required="isRequired">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>{{ label }}</label>
+            </div>
+          <div>
+        </script>
+        <script type="text/ng-template" id="paperRadio">
+          <div ng-form="radioForm" id="radio-awesome" class="form-group paper-radio">
+            <input type="radio" id="{{ idx }}" ng-model="model" name="modelName">
+            <label for="{{ idx }}" ng-click="invokeAnimation()">
+              <span></span>
+              <span class="radio"></span>
+              <span class="box"></span>
+              {{ label }}
+            </label>
+            <div ng-transclude></div>
+          </div>
+        </script>
         <!-- endbuild -->
 </body>
 </html>

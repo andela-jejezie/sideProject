@@ -1,79 +1,332 @@
-/* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background: #F3F3F3;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+
+/* NAV BAR */
+.nav-pic {
+  margin: -2px 5px 0 0;
+  max-height: 40px;
+  border-radius: 100px;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+
+/* MAIN POSTS PAGE */
+.post {
+  background: #fff;
+  padding:15px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+.info {
+  font-weight: bolder;
+  font-size: 16px;
 }
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
+.info .url {
+  font-weight: normal;
+  color:#999;
+  font-size:13px;
+  margin-left:5px;
+}
+
+
+/* PROFILE PAGE */
+.prof-img{
+  width:100%;
+  max-width:100px;
+  border-radius: 100px;
+}
+
+.name {
+  font-weight: bolder;
+  font-size: 1.5em;
+}
+
+.nav-tabs {
+  margin-top:30px;
+}
+
+.vote {
+  height:20px;
+  cursor: pointer;
+}
+
+.auth-forms {
+  max-width:400px;
+  margin:0 auto;
+  background: #fff;
+  padding:1px 25px 25px 25px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+.cmt-form {
+  margin-top:30px;
+}
+
+.cmt {
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid #ccc;
+}
+
+.cmt .author {
+  font-size:11px;
+  color:#bbb;
+}
+
+/* form starting stylings ------------------------------- */
+
+.group {
+  position: relative;
+  margin-bottom: 45px;
+}
+.paper-input input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+.paper-input input:focus {
+  outline: none;
+}
+/* LABEL ======================================= */
+
+.paper-input label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+/* active state */
+
+.paper-input input:focus ~ label/*, input:valid ~ label*/,
+.paper-input input.ng-dirty ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar  { position:relative; display:block; width:300px; }
+.bar:before, .bar:after   {
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#5264AE; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+.paper-input input:focus ~ .bar:before,
+.paper-input input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:225px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+.paper-input input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}
+
+
+
+
+/* === VALIDATION ==== */
+
+/* VALID */
+.paper-input input.ng-valid.ng-dirty { border-bottom: 1px solid #4fc24f;}
+.paper-input input.ng-valid.ng-dirty ~ .bar:before, 
+.paper-input input.ng-valid.ng-dirty ~ .bar:after{
+  background: #4fc24f !important;
+}
+.paper-input input.ng-valid.ng-dirty ~ label{
+  color: #4fc24f;
+}
+.paper-input input.ng-valid.ng-dirty:focus ~ .highlight {
+  -webkit-animation:validHighlighter 0.3s ease !important;
+  animation:validHighlighter 0.3s ease;
+}
+@-webkit-keyframes validHighlighter {
+    from { background:#4fc24f; }
+  to    { width:0; background:transparent; }
+}
+@keyframes validHighlighter {
+    from { background:#4fc24f; }
+  to    { width:0; background:transparent; }
+}
+
+/* INVALID */
+.paper-input input.ng-invalid.ng-dirty{ border-bottom: 1px solid #d34336;}
+.paper-input input.ng-invalid.ng-dirty ~ .bar:before, 
+.paper-input input.ng-invalid.ng-dirty ~ .bar:after{
+  background: #d34336 !important;
+}
+.paper-input input.ng-invalid.ng-dirty ~ label {
+  color: #d34336;
+}
+.paper-input input.ng-invalid.ng-dirty:focus ~ .highlight {
+  -webkit-animation:invalidHighlighter 0.3s ease;
+  animation:invalidHighlighter 0.3s ease;
+}
+@-webkit-keyframes invalidHighlighter {
+    from { background:#d34336; }
+  to    { width:0; background:transparent; }
+}
+@keyframes invalidHighlighter {
+    from { background:#d34336; }
+  to    { width:0; background:transparent; }
+}
+
+
+/* basic css */
+.paper-radio  {
+  position: relative;
+}
+.paper-radio > input[type=radio] {
+  display: none;
+}
+.paper-radio > label,
+.paper-radio p {
+  padding-left: 50px;
+}
+
+/* checkbox css */
+
+.paper-radio > label {
+  cursor: pointer;
+}
+.paper-radio label > span {
+  display: block;
+  position: absolute;
+  left: 0;
+  transition-duration: 0.3s;
+}
+.paper-radio label > .circle{
+  background-color: transparent;
+  left: -30px;
+  top: -30px;
+  height: 80px;
+  width: 80px;
+  /* z-index: -1; */
+  border-radius: 50%;
+  -webkit-animation: growCircle 0.3s ease;
+  animation: growCircle 0.3s ease;
+}
+.paper-radio label > .box {
+  border: 2px solid #000;
+  height: 20px;
+  width: 20px;
+  z-index: 888;
+  transition-delay: 0.2s;
+}
+.paper-radio label > .radio {
+  top: -7px;
+  left: 6px;
+  width: 12px;
+  height: 24px;
+  border: 2px solid #0f9d58;
+  border-top: none;
+  border-left: none;
+  opacity: 0;
+  z-index: 888;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  transition-delay: 0.3s;
+}
+/* handling click events */
+
+/* when checkbox is checked */
+
+
+.paper-radio input[type=radio]:checked ~ label > .box {
+  opacity: 0;
+  -webkit-transform: scale(0) rotate(-180deg);
+  transform: scale(0) rotate(-180deg);
+}
+.paper-radio input[type=radio]:checked ~ label > .radio {
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(45deg);
+  transform: scale(1) rotate(45deg);
+}
+/* bubble animation */
+
+@-webkit-keyframes growCircle {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  70% {
+    opacity: 0.5;
+    background: #ddd;
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
   }
 }
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
+@keyframes growCircle {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+  70% {
+    opacity: 0.5;
+    background: #DDD;
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

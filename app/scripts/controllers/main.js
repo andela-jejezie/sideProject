@@ -7,8 +7,7 @@
  * # MainCtrl
  * Controller of the newApp
  */
-angular.module('newApp')
-  .controller('MainCtrl', function ($scope) {
+app.controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
