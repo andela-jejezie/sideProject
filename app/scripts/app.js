@@ -20,6 +20,7 @@ var app = angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'angularFileUpload',
     'firebase'
   ])
   .constant('FIREBASE_URL', 'https://side-project.firebaseio.com/');

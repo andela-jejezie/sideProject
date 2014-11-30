@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('AuthCtrl', function ($scope, $location, Auth, user, $firebase) {
+app.controller('AuthCtrl', function ($scope, $location, Auth, user, $rootScope, $firebase) {
 
 
   $scope.error = false;
@@ -37,7 +37,7 @@ app.controller('AuthCtrl', function ($scope, $location, Auth, user, $firebase) {
         user.password = $scope.user.password;
         return Auth.createProfile(user);
       }).then(function(){
-        $location.path('/');
+        $location.path('/profileSetting');
       });
       }, function(error){
         $scope.error = true;

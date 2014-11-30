@@ -15,6 +15,16 @@
    
 
     <ul class="nav navbar-nav navbar-right">
+
+
+      <li ng-show="signedIn()">
+        <a ng-href="#/users/{{ user.profile.uid }}/profileSetting">
+          <img ng-src="{{ user.profile.picture}}" class="nav-pic" />
+        </a>
+      </li>
+      <li ng-show="signedIn()">
+        <p class="navbar-text">{{ user.profile.firstName}}</p>
+      </li>
       <li ng-show="signedIn()">
         <a ng-href="#" ng-click="logout()">Logout</a>
       </li>
