@@ -52,9 +52,13 @@ var app = angular
           }
         }
       })
-       .when('/profileSetting', {
+      .when('/profileSetting', {
         templateUrl: 'views/profile_Setting.html',
         controller: 'ProfileSettingCtrl'
+      })
+       .when('/forum/new_topic', {
+        templateUrl: 'views/new_topic.html',
+        controller: 'forumCtrl'
       })
       .otherwise({
         redirectTo: '/'
