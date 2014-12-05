@@ -362,6 +362,23 @@ body {
   }
 }
 
+.forumCat {
+  background-color: white;
+  border: 5px solid;
+  border-radius: 5px;
+  border-color: white;
+}
+
+.chatImg {
+  height: 50px;
+  width: 50px;
+
+}
+
+.chatList {
+  height: 150px;
+  overflow: hidden;
+}
 
 
 

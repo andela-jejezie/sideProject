@@ -56,10 +56,20 @@ var app = angular
         templateUrl: 'views/profile_Setting.html',
         controller: 'ProfileSettingCtrl'
       })
-       .when('/forum/new_topic', {
-        templateUrl: 'views/new_topic.html',
+
+      .when('/forum', {
+        templateUrl: 'views/forum.html',
         controller: 'forumCtrl'
       })
+      .when('/forum/newtopic', {
+        templateUrl: 'views/new_topic.html',
+        controller: 'newTopicCtrl'
+      })
+      .when('/forum/:category/:topic', {
+        templateUrl: 'views/topic_discussion.html',
+        controller: 'discussCtrl'
+      })
+
       .otherwise({
         redirectTo: '/'
       });
