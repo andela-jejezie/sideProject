@@ -56,7 +56,6 @@ var app = angular
         templateUrl: 'views/profile_Setting.html',
         controller: 'ProfileSettingCtrl'
       })
-
       .when('/forum', {
         templateUrl: 'views/forum.html',
         controller: 'forumCtrl'
@@ -69,7 +68,6 @@ var app = angular
         templateUrl: 'views/topic_discussion.html',
         controller: 'discussCtrl'
       })
-
       .otherwise({
         redirectTo: '/'
       });
