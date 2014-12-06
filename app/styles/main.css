@@ -380,6 +380,11 @@ body {
   overflow: hidden;
 }
 
+.topic {
+  border-bottom: 1px solid #E5E5E1;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
 
 
 

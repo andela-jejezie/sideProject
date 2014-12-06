@@ -1,36 +1,79 @@
-<div class="container forumCat">
+<div class="container forumCat" data-ng-init="findOneTopic()">
 <div class="row-fluid">
-    <div class="span4">
+    <div class="col-xs-6 col-md-4">
         <div class="scrollable">
-        	<div class="col-xs-6 col-md-4">
+        	<div>
         		<ul class="list-group">
-        			<li class="list-group-item"><h3><a href="">Just created</a></h3></li>
+        			<li class="list-group-item"><h3><a href="">All Discussion</a></h3></li>
         			<li class="list-group-item" data-ng-repeat="(category, value) in forumCatRef"><h3><a href="">{{value}}</a></h3></li>
         		</ul>
   			</div>
         </div>
     </div>
-    <div class="span8">
+    <div class="col-xs-12 col-sm-6 col-md-8">
         <div class="scrollable">
-            <div class="col-xs-12 col-sm-6 col-md-8 " >
-                <div class="row">
+                <div class="topic">
+                  <h3>{{ topicDetails.topic}}<span><h5>in {{topicDetails.category}} </h5></span></h3>  
+                </div>
+                <div class="row topic">
                     <div class="col-xs-12 col-md-2">
                         <img ng-src="{{ userDetails.picture}}" class="img-responsive img-rounded chatImg" />
+                        <span>
+                            <small>
+                                {{userDetails.firstName}}
+                            </small>
+                            <small>
+                                {{ userDetails.lastName }}
+                            </small>
+                      <br>
+                           <small>
+                                {{ userDetails.location }}
+                            </small> 
+                        </span>                    
                     </div>
                     <div class="col-xs-12 col-md-10">
-                        <h3>{{ topicDetails.topic}}<span><h5>by {{userDetails.userName}} </h5></span></h3>
                         <p> {{topicDetails.message}} </p>
                     </div>
-                </div>                      
+                </div> 
+        </div>
+
+        <div class="span8">
+        <div class="scrollable">{{topicComment.lenght}}
+                <div class="row topic"  data-ng-repeat="(key, value) in details">
+                    <div class="col-xs-12 col-md-2">
+                        <img ng-src="{{ value.picture}}" class="img-responsive img-rounded chatImg" />
+                        <span>
+                            <small>
+                                {{value.firstName}}
+                            </small>
+                            <small>
+                                {{ value.lastName }}
+                            </small>
+                      <br>
+                           <small>
+                                {{ value.location }}
+                            </small> 
+                        </span>                    
+                    </div>
+                    <div class="col-xs-12 col-md-10">
+                        <p> {{value.comment}} </p>
+                    </div>
             </div>
-
-
-
+        </div>
+  <br>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Comment</label>
+            <textarea class="form-control" rows="3" ng-model="comment"></textarea>
+            <br>
+            <p>
+                <a class="btn btn-lg btn-success" ng-href="" ng-click="saveComment()">Post</a>
+            </p>
         </div>
     </div>
+
+
+    </div>
 </div>
+<div class="container forumCat" data-ng-init="getComment()">
 </div>
 
-<div class="container" data-ng-init="findOneTopic()">
-
-</div>
