@@ -36,17 +36,37 @@ app.controller('discussCtrl', function ($scope, Auth, FIREBASE_URL, $routeParams
 	}
 
 	$scope.saveComment = function(){
-		var commentDetails = {
-			comment: $scope.comment,
-			creator: $scope.user.uid,
-			timestamp: Firebase.ServerValue.TIMESTAMP
-		}
+
+		var comm = $firebase(ref.child('forum_chats').child($routeParams.category).child($routeParams.topic)).$asObject();
+
+		comm.$loaded().then(function(data){
+			var numOfComment = data.commentCount + 1;
+			
+
+			console.log(numOfComment);
+
+		var conversationRef = $firebase(ref.child('forum_chats').child($routeParams.category).child($routeParams.topic));
+			conversationRef.$update({commentCount: numOfComment}).then(function(){
+
+				var commentDetails = {
+					comment: $scope.comment,
+					creator: $scope.user.uid,
+					timestamp: Firebase.ServerValue.TIMESTAMP
+				}
 
 
-		var commentRef = $firebase(ref.child('forum_chats').child($routeParams.category).child($routeParams.topic).child('comments'));
-		return commentRef.$push( commentDetails ).then(function(){
-        	$route.reload();
-	})
+				var commentRef = $firebase(ref.child('forum_chats').child($routeParams.category).child($routeParams.topic).child('comments'));
+				return commentRef.$push( commentDetails ).then(function(){
+		        	$route.reload();
+			})
+			})
+
+		})
+
+		
+
+
+		
 	};
 
 

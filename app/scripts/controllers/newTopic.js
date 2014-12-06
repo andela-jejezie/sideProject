@@ -11,7 +11,8 @@ app.controller('newTopicCtrl', function ($scope, Auth, FIREBASE_URL, $rootScope,
 			category: $scope.forumCatRef.value,
 			message: $scope.message,
 			timestamp: Firebase.ServerValue.TIMESTAMP,
-			creator: $scope.user.uid
+			creator: $scope.user.uid,
+			commentCount: 0
 	}
 		var conversationRef = $firebase(ref.child('forum_chats').child($scope.forumCatRef.value));
 		return conversationRef.$set($scope.topic, newTopic).then(function(){
