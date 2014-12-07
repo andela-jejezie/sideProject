@@ -1,4 +1,6 @@
 <div class="container forumCat" data-ng-init="findOneTopic()">
+
+<br>
 <div class="row-fluid">
     <div class="col-xs-6 col-md-4">
         <div class="scrollable">
@@ -20,10 +22,7 @@
                         <img ng-src="{{ userDetails.picture}}" class="img-responsive img-rounded chatImg" />
                         <span>
                             <small>
-                                {{userDetails.firstName}}
-                            </small>
-                            <small>
-                                {{ userDetails.lastName }}
+                                {{userDetails.userName}}
                             </small>
                       <br>
                            <small>
@@ -38,16 +37,13 @@
         </div>
 
         <div class="span8">
-        <div class="scrollable">{{topicComment.lenght}}
+            <div class="scrollable">
                 <div class="row topic"  data-ng-repeat="(key, value) in details">
                     <div class="col-xs-12 col-md-2">
                         <img ng-src="{{ value.picture}}" class="img-responsive img-rounded chatImg" />
                         <span>
                             <small>
-                                {{value.firstName}}
-                            </small>
-                            <small>
-                                {{ value.lastName }}
+                                {{value.userName}}
                             </small>
                       <br>
                            <small>
@@ -56,10 +52,10 @@
                         </span>                    
                     </div>
                     <div class="col-xs-12 col-md-10">
-                        <p> {{value.comment}} </p>
+                        <p> {{ value.comment }} </p>
                     </div>
+                </div>
             </div>
-        </div>
   <br>
         <div class="form-group">
             <label for="exampleInputEmail1">Comment</label>
@@ -74,6 +70,5 @@
 
     </div>
 </div>
-<div class="container forumCat" data-ng-init="getComment()">
-</div>
+
 
