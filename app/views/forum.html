@@ -1,4 +1,4 @@
-<div class="container forumCat" data-ng-init="chatDetails()">
+<div class="container forumCat" >
 	<div class="topic text-center">
     	<h3>Ask questions, drop a joke, whatever is in your mind, lets keep talking!!!</h3>
 	</div>
@@ -7,16 +7,17 @@
 	        <div class="scrollable">
 	        	<div class="col-xs-6 col-md-4">
 	        		<ul class="list-group">
-	        			<li class="list-group-item"><h3><a href="">All Discussion</a></h3></li>
-	        			<li class="list-group-item" data-ng-repeat="(category, value) in forumCatRef" ng-class="{active : isSelected(value)}"><h3><a href="" ng-model="item" ng-click="getCategory(value)">{{value}}</a></h3></li>
+	        			<li class="list-group-item"><h3><a href="#/forum">All Discussion</a></h3></li>
+	        			<li class="list-group-item" data-ng-repeat="(category, value) in forumCatRef" ng-class="{active : isSelected(value)}"><h3><a href="#/forum/{{value}}">{{value}}</a></h3></li>
 	        		</ul>
 	  			</div>
 	        </div>
 	    </div>
-		<div class="span8">
+
+		<div class="span8" data-ng-init="chatDetails()">
 			<div class="scrollable">
 				<div class="col-xs-6 col-md-8">
-        		<div class="row topic"  data-ng-repeat="(key, value) in details">
+        		<div class="row topic"  data-ng-repeat="(key, value) in allDetails">
             		<div class="col-xs-12 col-md-2">
                 		<img ng-src="{{ value.picture}}" class="img-responsive img-rounded chatImg" />                  
             		</div>

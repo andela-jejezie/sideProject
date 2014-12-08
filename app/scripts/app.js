@@ -64,9 +64,17 @@ var app = angular
         templateUrl: 'views/new_topic.html',
         controller: 'newTopicCtrl'
       })
+      .when('/forum/:category', {
+        templateUrl: 'views/search_category.html',
+        controller: 'searchByCatCtrl'
+      })
       .when('/forum/:category/:topic', {
         templateUrl: 'views/topic_discussion.html',
         controller: 'discussCtrl'
+      })
+      .when('/forum/:value', {
+        templateUrl: 'views/forum.html',
+        controller: 'forumCtrl'
       })
       .otherwise({
         redirectTo: '/'

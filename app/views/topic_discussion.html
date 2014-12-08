@@ -6,8 +6,8 @@
         <div class="scrollable">
         	<div>
         		<ul class="list-group">
-        			<li class="list-group-item"><h3><a href="">All Discussion</a></h3></li>
-        			<li class="list-group-item" data-ng-repeat="(category, value) in forumCatRef"><h3><a href="">{{value}}</a></h3></li>
+        			<li class="list-group-item"><h3><a href="#/forum">All Discussion</a></h3></li>
+        			<li class="list-group-item" data-ng-repeat="(category, value) in forumCatRef"><h3><a href="#/forum/{{value}}">{{value}}</a></h3></li>
         		</ul>
   			</div>
         </div>
@@ -36,7 +36,7 @@
                 </div> 
         </div>
 
-        <div class="span8">
+        <div class="span8" data-ng-init="getComment()">
             <div class="scrollable">
                 <div class="row topic"  data-ng-repeat="(key, value) in details">
                     <div class="col-xs-12 col-md-2">

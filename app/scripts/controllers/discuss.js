@@ -1,91 +1,58 @@
 'use strict';
 
-app.controller('discussCtrl', function ($scope, Auth, FIREBASE_URL, $routeParams, $rootScope, $route, $firebase){
+app.controller('discussCtrl', function ($scope, Auth, FIREBASE_URL, $routeParams, $rootScope, $http, $route, $firebase){
 	$scope.user = Auth.user;
 	var ref = new Firebase(FIREBASE_URL);
+	var forumUrl = ref + '/forum_chats/';
+	var userUrl = ref + '/user/';
 	var forumRef = ref.child('forum_chats');
 	var usersRef = ref.child('user');
 	$scope.forumCatRef = $firebase(ref.child('forum_category')).$asObject();
 
 	$scope.findOneTopic = function() {
-		$scope.topicDetails = $firebase(forumRef.child($routeParams.category).child($routeParams.topic)).$asObject();
-
-		$scope.topicDetails.$loaded().then(function(data){
-			console.log(data);
-			$scope.userDetails = $firebase(usersRef.child(data.creator)).$asObject();
+		return $http.get(forumUrl + $routeParams.category + '/' + $routeParams.topic + '.json' ).then(function(response){
+			$scope.topicDetails = response.data;
+			return $http.get(userUrl + response.data.creator + '.json').then(function(res){
+				$scope.userDetails = res.data;
+			})
 		})
-
 	};
 
 
 	$scope.getComment = function() {
-
 		$scope.details = [];
-		$scope.topicComment = $firebase(forumRef.child($routeParams.category).child($routeParams.topic).child('comments')).$asObject();
-
-		$scope.topicComment.$loaded().then(function(data){
-			data.forEach(function(k){
-				var commentCreatorDetails = $firebase(usersRef.child(k.creator)).$asObject();
-
-				commentCreatorDetails.$loaded().then(function(userSnap){
-					var object = merge( userSnap, k);
-					$scope.details.push(object);
-				})
+		return $http.get(forumUrl + $routeParams.category + '/' + $routeParams.topic + '/comments.json').then(function(response){
+			var collection = response.data;
+			_.forEach(collection, function(snap){
+				var chatDetails = snap;
+					return $http.get(userUrl + snap.creator + '.json').then(function(res){
+						var commentCreatorDetails = res.data;
+						var object = _.merge(chatDetails, commentCreatorDetails);
+						$scope.details.push(object);
+					})
 			})
 		})
-	}
+	};
 
 	$scope.saveComment = function(){
 
-		var comm = $firebase(ref.child('forum_chats').child($routeParams.category).child($routeParams.topic)).$asObject();
+		return $http.get(forumUrl + $routeParams.category + '/' + $routeParams.topic + '/commentCount.json').then(function(response){
+			var numOfComment = response.data + 1;
 
-		comm.$loaded().then(function(data){
-			var numOfComment = data.commentCount + 1;
-			
-
-			console.log(numOfComment);
-
-		var conversationRef = $firebase(ref.child('forum_chats').child($routeParams.category).child($routeParams.topic));
+			var conversationRef = $firebase(ref.child('forum_chats').child($routeParams.category).child($routeParams.topic));
 			conversationRef.$update({commentCount: numOfComment}).then(function(){
-
 				var commentDetails = {
 					comment: $scope.comment,
 					creator: $scope.user.uid,
 					timestamp: Firebase.ServerValue.TIMESTAMP
 				}
 
-
 				var commentRef = $firebase(ref.child('forum_chats').child($routeParams.category).child($routeParams.topic).child('comments'));
 				return commentRef.$push( commentDetails ).then(function(){
-		        	$route.reload();
+					$route.reload();
+				})
 			})
-			})
-
 		})
-
-		
-
-
-		
+	
 	};
-
-
-	var merge = function() {
-		var obj = {},
-	    	i = 0,
-	    	il = arguments.length,
-	    	key;
-		for (; i < il; i++) {
-	    	for (key in arguments[i]) {
-	        	if (arguments[i].hasOwnProperty(key)) {
-	            	obj[key] = arguments[i][key];
-	        	}
-	    	}
-		}
-		return obj;
-	};
-
-
-
-
 });
