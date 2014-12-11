@@ -5,12 +5,7 @@
 	<div class="row-fluid">
 	    <div class="span4">
 	        <div class="scrollable">
-	        	<div class="col-xs-6 col-md-4">
-	        		<ul class="list-group">
-	        			<li class="list-group-item"><h3><a href="#/forum">All Discussion</a></h3></li>
-	        			<li class="list-group-item" data-ng-repeat="(category, value) in forumCatRef" ng-class="{active : isSelected(value)}"><h3><a href="#/forum/{{value}}">{{value}}</a></h3></li>
-	        		</ul>
-	  			</div>
+	        	<div ng-include="'views/categoryList.html'"></div>
 	        </div>
 	    </div>
 

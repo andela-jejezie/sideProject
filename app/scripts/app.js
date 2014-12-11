@@ -76,6 +76,10 @@ var app = angular
         templateUrl: 'views/forum.html',
         controller: 'forumCtrl'
       })
+      .when('/forum/search/:topic', {
+        templateUrl: 'views/search_topic.html',
+        controller: 'searchByTopicCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

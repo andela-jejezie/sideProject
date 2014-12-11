@@ -1,0 +1,69 @@
+<div class="container forumCat" data-ng-init="findOneTopic()">
+
+<br>
+<div class="row-fluid">
+    <div class="span4">
+            <div class="scrollable">
+                <div ng-include="'views/categoryList.html'"></div>  
+            </div>
+        </div>
+    <div class="col-xs-12 col-sm-6 col-md-8">
+        <div class="scrollable">
+                <div class="topic">
+                  <h3>{{ topicDetails.topic}}<span><h5>in {{topicDetails.category}} </h5></span></h3>  
+                </div>
+                <div class="row topic">
+                    <div class="col-xs-12 col-md-2">
+                        <img ng-src="{{ userDetails.picture}}" class="img-responsive img-rounded chatImg" />
+                        <span>
+                            <small>
+                                {{userDetails.userName}}
+                            </small>
+                      <br>
+                           <small>
+                                {{ userDetails.location }}
+                            </small> 
+                        </span>                    
+                    </div>
+                    <div class="col-xs-12 col-md-10">
+                        <p> {{topicDetails.message}} </p>
+                    </div>
+                </div> 
+        </div>
+
+        <div class="span8" data-ng-init="getComment()">
+            <div class="scrollable">
+                <div class="row topic"  data-ng-repeat="(key, value) in details">
+                    <div class="col-xs-12 col-md-2">
+                        <img ng-src="{{ value.picture}}" class="img-responsive img-rounded chatImg" />
+                        <span>
+                            <small>
+                                {{value.userName}}
+                            </small>
+                      <br>
+                           <small>
+                                {{ value.location }}
+                            </small> 
+                        </span>                    
+                    </div>
+                    <div class="col-xs-12 col-md-10">
+                        <p> {{ value.comment }} </p>
+                    </div>
+                </div>
+            </div>
+  <br>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Comment</label>
+            <textarea class="form-control" rows="3" ng-model="comment"></textarea>
+            <br>
+            <p>
+                <a class="btn btn-lg btn-success" ng-href="" ng-click="saveComment()">Post</a>
+            </p>
+        </div>
+    </div>
+
+
+    </div>
+</div>
+
+

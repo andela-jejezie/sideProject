@@ -55,4 +55,8 @@ app.controller('discussCtrl', function ($scope, Auth, FIREBASE_URL, $routeParams
 		})
 	
 	};
+
+
+
+
 });

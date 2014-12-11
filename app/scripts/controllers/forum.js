@@ -5,7 +5,6 @@ app.controller('forumCtrl', function ($scope, Auth, FIREBASE_URL, $routeParams, 
 	var ref = new Firebase(FIREBASE_URL);
 	var forumUrl = ref + '/forum_chats.json';
 	var userUrl = ref + '/user/';
-	$scope.forumCatRef = $firebase(ref.child('forum_category')).$asObject();
 	$scope.allDetails = [];
 
 	$scope.chatDetails = function() {
@@ -24,4 +23,5 @@ app.controller('forumCtrl', function ($scope, Auth, FIREBASE_URL, $routeParams, 
 		})
 		
 	};
+
 });
