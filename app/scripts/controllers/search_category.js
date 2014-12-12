@@ -22,8 +22,5 @@ app.controller('searchByCatCtrl', function ($scope, Auth, FIREBASE_URL, $routePa
 					})
 			})
 		})
-	  };
-
-
-
+	}
 });

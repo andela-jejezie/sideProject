@@ -16,7 +16,7 @@ app.controller('ProfileSettingCtrl', function ($scope, $location, Auth, $rootSco
 	$scope.saveDetails = function() {
 		$scope.details = {
 			userName: $scope.detail.username, 
-			userLocation: $scope.detail.userLocation, 
+			userLocation: $scope.detail.userLocation.name, 
 			image: $scope.images,
 			brief_bio: $scope.detail.brief_bio,
 			uid: $scope.user.uid

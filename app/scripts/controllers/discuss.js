@@ -12,8 +12,13 @@ app.controller('discussCtrl', function ($scope, Auth, FIREBASE_URL, $routeParams
 	$scope.findOneTopic = function() {
 		return $http.get(forumUrl + $routeParams.category + '/' + $routeParams.topic + '.json' ).then(function(response){
 			$scope.topicDetails = response.data;
+			var pubDate = new Date ($scope.topicDetails.chatTimestamp);
+			var monthname=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+			$scope.date =  monthname[pubDate.getMonth()] + ' ' 
+                    + pubDate.getDate() + ', ' + pubDate.getFullYear();
 			return $http.get(userUrl + response.data.creator + '.json').then(function(res){
 				$scope.userDetails = res.data;
+				console.log($scope.topicDetails);
 			})
 		})
 	};
@@ -41,10 +46,13 @@ app.controller('discussCtrl', function ($scope, Auth, FIREBASE_URL, $routeParams
 
 			var conversationRef = $firebase(ref.child('forum_chats').child($routeParams.category).child($routeParams.topic));
 			conversationRef.$update({commentCount: numOfComment}).then(function(){
+				var pubDate = new Date ();
+				var monthname=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+				var date =  monthname[pubDate.getMonth()] + ' ' + pubDate.getDate() + ', ' + pubDate.getFullYear();
 				var commentDetails = {
 					comment: $scope.comment,
 					creator: $scope.user.uid,
-					timestamp: Firebase.ServerValue.TIMESTAMP
+					date: date
 				}
 
 				var commentRef = $firebase(ref.child('forum_chats').child($routeParams.category).child($routeParams.topic).child('comments'));

@@ -4,27 +4,40 @@
 		<ul class="list-group">
 			<li class="list-group-item">
 				<div class="input-group topic">
+				<form>
 					<div class="row-fluid  center-block" ng-init="getTopic()">
 						<div class="col-md-10 pull-left nopadding ui-widget">
+						<div class="input-group ">
 							<input type="text" id="search" name="search" class="form-control" placeholder="Search Topic" ng-model="newValue" auto-complete ui-items="allTopic" >
+								<span class="input-group-addon btn-forum">
+							<i class="text-muted glyphicon glyphicon-search "></i>
+						</span>
+					</div>
 						</div>
-						<div class="button col-md-2 nopadding" >
-							<!-- a class="btn btn-forum"> -->
-							<a href="" ng-click="searchTopic()" class="btn btn-forum">
-								<span class="glyphicon glyphicon-search"></span>
-							</a>
-						</div>
+						<!-- <div class="button col-md-2 nopadding" >
+							<span class="input-group-addon">
+							<i class="text-muted glyphicon glyphicon-search"></i>
+						</span>
+						</div> -->
 		
 					</div>
+					</form>
 				</div>
 			<br>
+
+			
+						
+			
+					
+
+
 
 				<div class="text-center">
 					<a href="#/forum/newtopic">New Topic</a>
 				</div>
 			</li>
 			<li class="list-group-item"><h3><a href="#/forum">All Discussion</a></h3></li>
-			<li class="list-group-item" data-ng-repeat="(category, value) in forumCatRef" ng-class="{active : isSelected(value)}"><h3><a href="#/forum/{{value}}">{{value}}</a></h3></li>
+			<li class="list-group-item" data-ng-repeat="(category, value) in forumCatRef"><h3><a href="#/forum/{{value}}">{{value}}</a></h3></li>
 		</ul>
 	</div>
 </div>

@@ -6,8 +6,9 @@ app.controller('forumCtrl', function ($scope, Auth, FIREBASE_URL, $routeParams, 
 	var forumUrl = ref + '/forum_chats.json';
 	var userUrl = ref + '/user/';
 	$scope.allDetails = [];
+	
 
-	$scope.chatDetails = function() {
+	$scope.chatDetails = function() {		
 		return $http.get(forumUrl).then(function(response){
 			var chatCollection = response.data;
 			_.forEach(chatCollection, function(data){
@@ -18,9 +19,13 @@ app.controller('forumCtrl', function ($scope, Auth, FIREBASE_URL, $routeParams, 
 						var object = _.merge(chatDetails, creatorDetails);
 						$scope.allDetails.push(object);
 					})
-				})
+					
 			})
+				})
+				
+
 		})
+
 		
 	};
 

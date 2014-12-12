@@ -22,8 +22,14 @@
 								{{ value.topic}} 
 							</a>
 							<small>by {{value.userName}}</small>
-							<small class="pull-right"> {{value.category}} &nbsp &nbsp {{value.commentCount}} comments </small>
+							<small class="pull-right"><i>{{value.chatTimestamp}}</i> </small>
+							
 						</h3>
+						<p class="pull-right">
+							<i>
+								{{value.category}} &nbsp &nbsp {{value.commentCount}} comments 
+							</i>
+						</p>
 						<p> {{value.message}} </p>
 					</div>
             	</div>

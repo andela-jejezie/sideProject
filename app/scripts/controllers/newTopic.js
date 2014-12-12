@@ -6,11 +6,14 @@ app.controller('newTopicCtrl', function ($scope, Auth, FIREBASE_URL, $rootScope,
 	$scope.forumCatRef = $firebase(ref.child('forum_category')).$asObject();
 	
 	$scope.createTopic = function() {
+		var pubDate = new Date ();
+		var monthname=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+		var date =  monthname[pubDate.getMonth()] + ' ' + pubDate.getDate() + ', ' + pubDate.getFullYear();
 		var newTopic = {
 			topic: $scope.topic,
 			category: $scope.forumCatRef.value,
 			message: $scope.message,
-			timestamp: Firebase.ServerValue.TIMESTAMP,
+			chatTimestamp: date,
 			creator: $scope.user.uid,
 			commentCount: 0
 	}
