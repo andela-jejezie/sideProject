@@ -21,6 +21,7 @@ var app = angular
     'ngSanitize',
     'ngTouch',
     'angularFileUpload',
+    'google.places',
     'firebase'
   ])
   .constant('FIREBASE_URL', 'https://side-project.firebaseio.com/');
