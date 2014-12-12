@@ -16,7 +16,7 @@ app.controller('ProfileSettingCtrl', function ($scope, $location, Auth, $rootSco
 	$scope.saveDetails = function() {
 		$scope.details = {
 			userName: $scope.detail.username, 
-			userLocation: $scope.detail.userLocation, 
+			userLocation: $scope.detail.userLocation.name, 
 			image: $scope.images,
 			brief_bio: $scope.detail.brief_bio,
 			uid: $scope.user.uid
@@ -27,5 +27,18 @@ app.controller('ProfileSettingCtrl', function ($scope, $location, Auth, $rootSco
 		}).then(function(){
 			$location.path('/');
 		});
-	}
+	};
+
+	$scope.getLocation = function(val) {
+	    return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
+	      params: {
+	        address: val,
+	        sensor: false
+	      }
+	    }).then(function(response){
+	      return response.data.results.map(function(item){
+	        return item.formatted_address;
+	      });
+	    });
+	 };
 });

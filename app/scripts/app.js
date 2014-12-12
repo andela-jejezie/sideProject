@@ -21,6 +21,7 @@ var app = angular
     'ngSanitize',
     'ngTouch',
     'angularFileUpload',
+    'google.places',
     'firebase'
   ])
   .constant('FIREBASE_URL', 'https://side-project.firebaseio.com/');
@@ -52,9 +53,33 @@ var app = angular
           }
         }
       })
-       .when('/profileSetting', {
+      .when('/profileSetting', {
         templateUrl: 'views/profile_Setting.html',
         controller: 'ProfileSettingCtrl'
+      })
+      .when('/forum', {
+        templateUrl: 'views/forum.html',
+        controller: 'forumCtrl'
+      })
+      .when('/forum/newtopic', {
+        templateUrl: 'views/new_topic.html',
+        controller: 'newTopicCtrl'
+      })
+      .when('/forum/:category', {
+        templateUrl: 'views/search_category.html',
+        controller: 'searchByCatCtrl'
+      })
+      .when('/forum/:category/:topic', {
+        templateUrl: 'views/topic_discussion.html',
+        controller: 'discussCtrl'
+      })
+      .when('/forum/:value', {
+        templateUrl: 'views/forum.html',
+        controller: 'forumCtrl'
+      })
+      .when('/forum/search/:topic', {
+        templateUrl: 'views/search_topic.html',
+        controller: 'searchByTopicCtrl'
       })
       .otherwise({
         redirectTo: '/'

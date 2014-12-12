@@ -318,8 +318,69 @@ body {
   }
 }
 
+.forumCat {
+  background-color: white;
+  border: 5px solid;
+  border-radius: 5px;
+  border-color: white;
+}
+
+.chatImg {
+  height: 50px;
+  width: 50px;
+
+}
+
+.chatList {
+  height: 150px;
+  overflow: hidden;
+}
+
+.topic {
+  border-bottom: 1px solid #E5E5E1;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.row-fluid {
+  margin-top: 20px; 
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+   color: white;
+}
+
+.btn-forum{
+  background: #d14836;
+  color: white;
+}
 
 
+.block-center{
+    border-bottom: 1px solid #E5E5E1;
+
+}
+
+.ui-autocomplete{
+  color: red;
+}
+.button {
+display: block;
+width: 25px;
+height: 25px;
+background: #4E9CAF;
+padding: 10px;
+text-align: center;
+border-radius: 5px;
+color: white;
+font-weight: bold;
+}
+
+.text-muted {
+  color: white;
+}
 
 
 

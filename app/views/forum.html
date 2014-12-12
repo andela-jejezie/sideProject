@@ -1,0 +1,40 @@
+<div class="container forumCat" >
+	<div class="topic text-center">
+    	<h3>Ask questions, drop a joke, whatever is in your mind, lets keep talking!!!</h3>
+	</div>
+	<div class="row-fluid">
+	    <div class="span4">
+	        <div class="scrollable">
+	        	<div ng-include="'views/categoryList.html'"></div>
+	        </div>
+	    </div>
+
+		<div class="span8" data-ng-init="chatDetails()">
+			<div class="scrollable">
+				<div class="col-xs-6 col-md-8">
+        		<div class="row topic"  data-ng-repeat="(key, value) in allDetails">
+            		<div class="col-xs-12 col-md-2">
+                		<img ng-src="{{ value.picture}}" class="img-responsive img-rounded chatImg" />                  
+            		</div>
+               		<div class="col-xs-12 col-md-10">
+						<h3>
+							<a href="#/forum/{{value.category}}/{{value.topic}}">  
+								{{ value.topic}} 
+							</a>
+							<small>by {{value.userName}}</small>
+							<small class="pull-right"><i>{{value.chatTimestamp}}</i> </small>
+							
+						</h3>
+						<p class="pull-right">
+							<i>
+								{{value.category}} &nbsp &nbsp {{value.commentCount}} comments 
+							</i>
+						</p>
+						<p> {{value.message}} </p>
+					</div>
+            	</div>
+            	</div>
+        	</div>
+    	</div>
+    </div>
+</div>
