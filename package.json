@@ -1,7 +1,16 @@
 {
   "name": "new",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "alter": "^0.2.0",
+    "ordered-ast-traverse": "^0.1.1",
+    "simple-fmt": "^0.1.0",
+    "simple-is": "^0.2.0",
+    "source-map": "^0.1.40",
+    "stable": "^0.1.5",
+    "stringmap": "^0.2.2",
+    "stringset": "^0.2.1"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
