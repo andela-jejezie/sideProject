@@ -23,12 +23,16 @@ var app = angular
     'angularFileUpload',
     'firebase'
   ])
-  .constant('FIREBASE_URL', 'https://side-project.firebaseio.com/');
+  .constant('FIREBASE_URL', 'https://incandescent-fire-1226.firebaseio.com/');
   app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+      })
+      .when('/review', {
+        templateUrl:'views/review.html',
+        controller:'ReviewCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -52,7 +56,7 @@ var app = angular
           }
         }
       })
-       .when('/profileSetting', {
+      .when('/profileSetting', {
         templateUrl: 'views/profile_Setting.html',
         controller: 'ProfileSettingCtrl'
       })
