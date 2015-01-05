@@ -1,0 +1,27 @@
+<section>
+  <div layout="column">
+    <md-content>
+      <form style="padding: 20px;">
+        <md-text-float label="Country" ng-model="business.country"> </md-text-float>
+        <div class="row">
+            <md-text-float label="Business Name" ng-model="business.name"> </md-text-float>
+            <md-text-float label="Email Address" ng-model="business.email" class="long"> </md-text-float>
+        </div>
+        <md-text-float label="Category" ng-model="business.category"> </md-text-float>
+        <md-text-float label="Address" ng-model="business.address"> </md-text-float>
+        <div class="row">
+          <md-text-float label="City" ng-model="business.city"> </md-text-float>
+          <md-text-float label="State" ng-model="business.state"> </md-text-float>
+          <md-text-float label="Zip Code" ng-model="business.zip"> </md-text-float>
+        </div>
+        <md-text-float label="Phone Number" ng-model="business.phoneNumber" > </md-text-float>
+        <md-text-float label="Website Address" ng-model="business.website" > </md-text-float>
+      </form>
+      <md-checkbox ng-model="check">Write a review</md-checkbox>
+      <md-whiteframe class="md-whiteframe-z3" layout layout-align="center center" ng-if="check">
+        <textarea type="text" ng-model="business.review"></textarea>
+      </md-whiteframe>
+      <md-button class="md-raised md-warn" ng-click="createBusiness(business)">Add Business</md-button>
+    </md-content>
+  </div>
+</section>

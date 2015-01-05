@@ -1,4 +1,4 @@
-<div class="auth-forms">
+<!-- <div class="auth-forms">
   <h2>Review</h2>
   <form name="materialForm">
   	<div>
@@ -8,13 +8,35 @@
       <input type="button" ng-click="createReview(review)" value="submit"></input>
     </div>
   </form>
-  <!-- display review -->
+  <!-- display review
   <input type="button" value="RetrieveData" ng-click="getReview()"></input>
-  <div>
-    <h3></h3>
-    <h3></h3>
+  <div ng-repeat="review in reviews">
+    <p>{{review.name}}</p>
+    <h5>{{review.reviewSlot}}</h5>
     <h3></h3>
   </div>
 </div>
+ --> 
+
+<div layout="column">
+  <md-content>
+    <form style="padding: 20px;">
+      <md-text-float label="Company" ng-model="user.company"> </md-text-float>
+      <div class="row">
+          <md-text-float label="FirstName" ng-model="user.firstName"> </md-text-float>
+          <md-text-float label="LastName" ng-model="user.lastName" class="long"> </md-text-float>
+      </div>
+      <md-text-float label="Address" ng-model="user.address"> </md-text-float>
+      <div class="row">
+        <md-text-float label="City" ng-model="user.city"> </md-text-float>
+        <md-text-float label="State" ng-model="user.state"> </md-text-float>
+        <md-text-float label="Postal Code" ng-model="user.postalCode"> </md-text-float>
+      </div>
+      <md-text-float label="Country" ng-model="user.country" > </md-text-float>
+    </form>
+  </md-content>
+</div>
+
+
 
 

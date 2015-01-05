@@ -17,6 +17,7 @@ var app = angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
+    'ngMaterial',
     'ngRoute',
     'ngSanitize',
     'ngTouch',
@@ -32,6 +33,10 @@ var app = angular
       })
       .when('/review', {
         templateUrl:'views/review.html',
+        controller:'ReviewCtrl'
+      })
+      .when('/business', {
+        templateUrl:'views/business.html',
         controller:'ReviewCtrl'
       })
       .when('/about', {
