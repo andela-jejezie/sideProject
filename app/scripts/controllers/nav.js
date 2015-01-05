@@ -2,7 +2,6 @@
 
 app.controller('NavigationController', function ($scope, $location, Auth, $rootScope) {
 
-
 	$scope.user = Auth.user;
 
 

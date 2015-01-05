@@ -9,6 +9,7 @@
  * Main module of the application.
  */
  /* global app:true */
+
 /* exported app */
 
 
