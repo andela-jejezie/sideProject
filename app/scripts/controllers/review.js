@@ -2,16 +2,28 @@
 
 app.controller('ReviewCtrl', function (FIREBASE_URL, $scope, $location, Auth, ReviewSvc, $rootScope, $firebase, $http) {
   var ref = new Firebase(FIREBASE_URL),
-      getReviewRef = ref + '/review/category/school.json';
+      getReviewRef = ref + '/review/category/school.json',
+      getBusinessRef = ref + '/business.json';
 
 
   $scope.createBusiness = function(business){
     console.log("createBusiness", business.review)
     ReviewSvc.createBusiness(business).then(function(response){
-        var data = response.ref();
-        data.once('value', function(dataSnap){
-            console.log(dataSnap.val());
-        })
+      var data = response.ref();
+      data.once('value', function(dataSnap){
+          console.log(dataSnap.val());
+      })
+    })
+  }
+
+
+  $scope.editBusiness = function(){
+
+  }
+
+  $scope.getBusiness = function(){
+    return $http.get(getBusinessRef).then(function(response){
+      $scope.businessList = response.data
     })
   }
 
