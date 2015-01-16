@@ -14,14 +14,48 @@
   <div ng-controller="NavCtrl" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
    
 
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-left">
 
-
-      <li ng-show="signedIn()">
+      <li>
         <a ng-href="#/users/{{ user.profile.uid }}/profileSetting">
-          <img ng-src="{{ user.profile.picture}}" class="nav-pic" />
+          About Me
         </a>
       </li>
+
+      
+      <li>
+        <a ng-href="#/users/{{ user.profile.uid }}/profileSetting">
+          Write a Review
+        </a>
+      </li>
+
+      <li>
+        <a ng-href="#/users/{{ user.profile.uid }}/profileSetting">
+          Find Friends
+        </a>
+      </li>
+
+      <li>
+        <a ng-href="#/users/{{ user.profile.uid }}/profileSetting">
+          Messages
+        </a>
+      </li>
+
+      <li>
+        <a ng-href="#/users/{{ user.profile.uid }}/profileSetting">
+          Talk
+        </a>
+      </li>
+
+
+      <li>
+        <a ng-href="#/users/{{ user.profile.uid }}/profileSetting">
+          Events
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
       <li ng-show="signedIn()">
         <p class="navbar-text">{{ user.profile.firstName}}</p>
       </li>
@@ -33,6 +67,13 @@
       </li>
       <li ng-hide="signedIn()">
         <a href="#/register">Register</a>
+      </li>
+
+
+      <li ng-show="signedIn()">
+        <a ng-href="#/users/{{ user.profile.uid }}/profileSetting">
+          <img ng-src="{{ user.profile.picture}}" class="nav-pic" />
+        </a>
       </li>
     </ul>
   </div><!-- /.navbar-collapse -->
