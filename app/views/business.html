@@ -25,19 +25,3 @@
     </md-content>
   </div>
 </section>
-<section ng-init="getBusiness()">
-  <md-button class="md-raised md-warn" ng-click="getBusiness()">View Business</md-button>
-  <md-list>
-    <md-item ng-repeat="business in businessList">
-      <md-item-content>
-        <div class="md-tile-content">
-          <h3>{{business.name}}</h3>
-          <h4>{{business.website}}</h4>
-          <p>
-            {{business.address}}
-          </p>
-        </div>
-      </md-item-content>
-    </md-item>
-  </md-list>
-</section>

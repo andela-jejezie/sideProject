@@ -39,10 +39,15 @@ var app = angular
         templateUrl:'views/business.html',
         controller:'ReviewCtrl'
       })
+      .when('/listbusiness', {
+        templateUrl:'views/list_business.html',
+        controller:'ReviewCtrl'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+
       .when('/register', {
         templateUrl: 'views/register.html',
         controller: 'AuthCtrl',

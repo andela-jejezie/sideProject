@@ -1,0 +1,16 @@
+<section ng-init="getBusiness()">
+  <md-list>
+    <md-item ng-repeat="business in businessList" >
+      <md-item-content style="border:2px solid blue; border-radius:5px; margin:2px; width:80%">
+        <div class="md-tile-content">
+          <h3 ng-bind="business.name"></h3>
+          <h4 ng-bind="business.website"></h4>
+          <p ng-bind="business.address"></p>
+          <md-button class="md-fab" aria-label="Comment">
+            <md-icon icon="/img/icons/ic_comment_24px.svg" style="width: 24px; height: 24px;"></md-icon>
+          </md-button>
+        </div>
+      </md-item-content>
+    </md-item>
+  </md-list>
+</section>
